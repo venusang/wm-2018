@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
+import styled from 'styled-components';
 import { locate } from '../actions';
 import logo from '../assets/logo.png';
 import Button from './button/button.component';
@@ -9,6 +10,78 @@ import ListingCards from './listing_cards/listing_cards.component';
 import LocationHeader from './location_header/location_header.component';
 
 import './App.css';
+
+const APP = styled.div`
+  margin-bottom: 20px;
+
+  .app__loading {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .app__header__logo {
+    width: 110px;
+    height: 25px;
+  }
+
+  .app_content {
+    width: 73%;
+    margin: 0 auto;
+  }
+  .app__regions__content-label {
+    height: 40px;
+    width: 100%;
+    text-align: left;
+    line-height: 40px;
+    margin-top: 20px;
+  }
+
+  .app__location-header {
+    height: 100px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app__location-header h2,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .app__listing-card-wrapper {
+    margin: 10px 0 0 0;
+  }
+`;
+
+const HEADER = styled.header`
+  height: 70px;
+  display: flex;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: #fff;
+`;
+
+const H2 = styled.h2`
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(74, 74, 74);
+  display: flex;
+  -webkit-box-flex: 2;
+  font-size: 1.625rem;
+  font-weight: 600;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0px;
+  padding: 0px 0.3125rem 0px 0px;
+  overflow: hidden;
+`;
 
 const regionTypes = ['delivery', 'dispensary', 'doctor'];
 const regionLabels = {
@@ -38,16 +111,14 @@ export class App extends Component {
       });
     }
   }
-
   render() {
     const { isLocating, location, regions } = this.props;
     const { clientLocating } = this.state;
-
     const getLabel = (listings, label) => {
       if (get(listings, 'listings').length) {
         return (
           <div key={label} className="app__regions__content-label">
-            <strong> {label} </strong>
+            <H2> {label} </H2>
           </div>
         );
       }
@@ -55,11 +126,11 @@ export class App extends Component {
     };
 
     return (
-      <div className="app">
-        <header className="app__header">
+      <APP className="app">
+        <HEADER className="app__header">
           <img src={logo} className="app__header__logo" alt="weedmaps logo" width="300" height="70" />
           <Button text={'Locate Me'} onClick={this.locateMeClick} />
-        </header>
+        </HEADER>
         <main className="app_content">
           { (clientLocating || isLocating) && !location &&
             <p className="app__loading">Locating...</p>
@@ -79,7 +150,7 @@ export class App extends Component {
             </div>
           }
         </main>
-      </div>
+      </APP>
     );
   }
 }

@@ -1,62 +1,7 @@
+
 body {
   margin: 0;
   padding: 0;
   min-width: 320px;
   font-family: sans-serif;
-}
-
-.app {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.app__header {
-  height: 70px;
-  display: flex;
-  padding: 0 20px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #222;
-  color: #fff;
-}
-
-.app__loading {
-  margin: 20px 0;
-  font-size: 16px;
-  color: #333;
-}
-
-.app__header__logo {
-  width: 110px;
-  height: 25px;
-}
-
-.app_content {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.app__regions__content-label {
-  height: 40px;
-  width: 100%;
-  text-align: left;
-  line-height: 40px;
-}
-
-.app__location-header {
-  height: 100px;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.app__location-header h2,
-p {
-  margin: 0;
-  padding: 0;
-}
-
-.app__listing-card-wrapper {
-  margin: 10px 0 0 0;
 }
