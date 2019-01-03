@@ -2,14 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { locate } from '../actions';
 import logo from '../assets/logo.png';
+import loading from '../assets/loading-leaf.gif';
 import Button from './button/button.component';
 import ListingCards from './listing_cards/listing_cards.component';
 import LocationHeader from './location_header/location_header.component';
 
-import './App.css';
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-display: fallback; 
+  }
+`;
 
 const APP = styled.div`
   margin-bottom: 20px;
@@ -18,11 +28,13 @@ const APP = styled.div`
     margin: 20px 0;
     font-size: 16px;
     color: #333;
+    text-align: center;
   }
 
   .app__header__logo {
     width: 110px;
     height: 25px;
+    border: none;
   }
 
   .app_content {
@@ -128,12 +140,12 @@ export class App extends Component {
     return (
       <APP className="app">
         <HEADER className="app__header">
-          <img src={logo} className="app__header__logo" alt="weedmaps logo" width="300" height="70" />
+          <a href="/"><img src={logo} className="app__header__logo" alt="weedmaps logo" width="300" height="70" /></a>
           <Button text={'Locate Me'} onClick={this.locateMeClick} />
         </HEADER>
         <main className="app_content">
           { (clientLocating || isLocating) && !location &&
-            <p className="app__loading">Locating...</p>
+            <p className="app__loading"><img src={loading} alt="loading geolcation" width="400"/><br />Loading...</p>
           }
           { !isLocating && location &&
             <LocationHeader location={location}/>
@@ -150,6 +162,7 @@ export class App extends Component {
             </div>
           }
         </main>
+        <GlobalStyle />
       </APP>
     );
   }

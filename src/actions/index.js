@@ -14,7 +14,7 @@ export const receiveLocation = json => ({
 });
 
 export const locate = coords => (dispatch) => {
-  dispatch(requestLocation(coords));
+  dispatch(requestLocation());
   return fetch(`https://${config.API_HOST}/wm/v2/location?include%5B%5D=regions.listings&latlng=${coords.latitude}%2C${coords.longitude}`)
     .then(
       response => response.json(),

@@ -7,6 +7,7 @@ import LocationHeader from './location_header/location_header.component';
 
 describe('<App/>', () => {
   describe('<Button />', () => {
+    const clickFn = jest.fn();
     it('renders the button', () => {
       const props = {
         text: 'Locate Me'
@@ -15,6 +16,14 @@ describe('<App/>', () => {
 
       expect(wrapper.exists('.button')).toBe(true);
       expect(wrapper.find('.button').text()).toBe('Locate Me');
+    });
+
+    it('calls the locateMe function when clicked', () => {
+      const component = shallow(<Button onClick={clickFn} />);
+      component
+        .find('.button')
+        .simulate('click');
+      expect(clickFn).toHaveBeenCalled();
     });
   });
 
