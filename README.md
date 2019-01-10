@@ -7,7 +7,6 @@
 - [Requirements](#requirements)
   - [Wireframe](#wireframe)
 - [Architecture](#architecture)
-- [Delivering Your Completed Challenge](#delivering-your-completed-challenge)
 - [Weedmaps Location API Documentation](#weedmaps-location-api-documentation)
   - [Parameters](#parameters)
   - [Example Request](#example-request)
