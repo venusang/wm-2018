@@ -1,4 +1,4 @@
-# Weedmaps Frontend Code Challenge
+# A Frontend Code Challenge in ReactJS
 
 **Table of Contents**
 - [Prerequisites](#prerequisites)
