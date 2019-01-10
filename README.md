@@ -85,11 +85,8 @@ src
     └── configureStore.js
 ```
 
-## Delivering Your Completed Challenge
-- Please do NOT include any `.git` history or `/node_modules` directories
-- Zip your completed work and attach it in a reply to the code challenge kick off email you recieved from us. Attaching through Google Drive for Gmail users is also appreciated.
 
-## Weedmaps Location API Documentation
+## Location API Documentation
 Given a request, this API will return the best matching location along with regions and/or listings that are published for each Listing type `(dispensary|delivery|doctor)`. If a `latlng` parameter is not included, the API will default to GeoIP lookup.
 
 ### Parameters
