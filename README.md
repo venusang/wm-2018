@@ -5,7 +5,6 @@
 - [Installation](#installation)
 - [Available Scripts](#available-scripts)
 - [Requirements](#requirements)
-  - [Wireframe](#wireframe)
 - [Architecture](#architecture)
 - [Weedmaps Location API Documentation](#weedmaps-location-api-documentation)
   - [Parameters](#parameters)
@@ -42,9 +41,6 @@
 - Implement thorough testing with [Jest](https://facebook.github.io/jest/) and feel free to add any other test utilities to the project such as [Enzyme](http://airbnb.io/enzyme/). Strive for high quality test coverage rather than 100% test coverage.
 - Ensure there are no errors when running `$ yarn eslint`
 - Attention to detail and an aesthetic sensibility are appreciated just as much clean and performant code. The user-interface should be responsive and free of visual artifacts e.g. text wrapping, UI alignment, etc.
-
-### Wireframe
-<img src="wireframe.png" width="60%" />
 
 ## Architecture
 The state of the application should be managed using [Redux](http://redux.js.org). Components should utilize data from a Redux store and the general structure of the application has been provided and should look similar to the following:
